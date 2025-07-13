@@ -1,0 +1,241 @@
+/* Generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+#app-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    min-height: 500px; /* Asegura un mínimo de altura para que el contenido sea visible */
+    display: flex; /* Añadido para centrar mensajes */
+    flex-direction: column; /* Añadido para centrar mensajes */
+    justify-content: center; /* Añadido para centrar mensajes */
+    align-items: center; /* Añadido para centrar mensajes */
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+nav button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #2c3e50;
+    color: white;
+    border-top: 1px solid #34495e;
+}
+
+/* Mensajes */
+.loading-message, .error-message, .info-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin: 50px 0;
+    width: 100%; /* Asegura que ocupe todo el ancho para centrado */
+}
+
+.error-message {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Secciones de Contenido (Home, About) */
+.home-section, .about-section {
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Ajuste para que ocupe el ancho */
+    box-sizing: border-box; /* Incluir padding en el width */
+}
+
+.home-section ul, .about-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.home-section li, .about-section li {
+    margin-bottom: 10px;
+}
+
+.home-section button, .about-section button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.home-section button:hover, .about-section button:hover {
+    background-color: #229954;
+}
+
+
+/* Galería */
+.gallery-wrapper {
+    width: 100%;
+    /* Remueve flexbox de app-container si usas gallery-wrapper para contener todo */
+}
+
+.gallery-controls {
+    margin-bottom: 25px;
+    text-align: center;
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    box-sizing: border-box; /* Incluir padding en el width */
+}
+
+.gallery-controls label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.gallery-controls input[type="number"] {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 80px;
+    text-align: center;
+    margin-right: 15px;
+}
+
+.gallery-grid {
+    display: grid; /* ¡CRÍTICO! Usar Grid para el layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 20px; /* Espacio entre los ítems */
+    padding: 10px;
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluir padding en el width */
+}
+
+.gallery-item {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%; /* ¡CRÍTICO! La imagen ocupa el 100% del ancho del contenedor */
+    height: 200px; /* ¡CRÍTICO! Esto le da una altura fija y visible a las imágenes */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    display: block; /* La imagen se comporta como un bloque */
+    border-bottom: 1px solid #eee;
+}
+
+.gallery-item-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.gallery-item-info h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #34495e;
+}
+
+.gallery-item-info p {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-bottom: 0;
+}
+
+/* Detalle de Imagen */
+.image-detail {
+    text-align: center;
+    padding: 20px;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    box-sizing: border-box; /* Incluir padding en el width */
+}
+
+.image-detail img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+}
+
+.image-detail h2 {
+    font-size: 2.2em;
+    color: #34495e;
+    margin-bottom: 10px;
+}
+
+.image-detail p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.image-detail button {
+    background-color: #e67e22;
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+.image-detail button:hover {
+    background-color: #d35400;
+}
